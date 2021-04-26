@@ -34,6 +34,7 @@ except TimeoutException:
 print('🕵️\tConnected. Scraping...')
 
 availableDates = []
+allDates = ""
 try:
   # Get dates container element
     datesContainer = driver.find_elements_by_xpath(
@@ -44,6 +45,7 @@ try:
             'button').text.split(', ')[1]
         # If date exists, add to available dates array
         if dateString:
+            allDates += f'{dateString}, '
             date = datetime.strptime(f'{dateString} 2021', '%b %d %Y')
             availableDates.append(date)
 except NoSuchElementException:
@@ -51,7 +53,8 @@ except NoSuchElementException:
     driver.quit()
 # No need for webdriver to stick around
 driver.quit()
-print('📆\tDates found. Looking up earlier dates...')
+print(
+    f'📆\tDate(s) found: {allDates[:-2].title()}. Determining earlier availability...')
 
 # For each date in availableDates, check if value is less than current date
 for date in availableDates:
