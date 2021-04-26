@@ -55,7 +55,7 @@ print('📆\tDates found. Looking up earlier dates...')
 
 # For each date in availableDates, check if value is less than current date
 for date in availableDates:
-    if datetime.now() < date:
+    if datetime.now() > date:
         print('🎉\tEarlier date found! Sending Discord message...')
         client = discord.Client()
 
