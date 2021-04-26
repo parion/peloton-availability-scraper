@@ -13,6 +13,7 @@ URL = os.environ['URL']
 TIMEOUT = os.environ['TIMEOUT']
 TOKEN = os.environ['DISCORD_TOKEN']
 USER_ID = os.environ['DISCORD_USER_ID']
+CHROMEDRIVER_PATH = os.environ['CHROMEDRIVER_PATH']
 CHROME_BIN = os.environ.get('GOOGLE_CHROME_SHIM', None)
 
 # Set up Selenium WebDriver using Chrome executable and point to URL
