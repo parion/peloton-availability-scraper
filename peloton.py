@@ -17,11 +17,10 @@ CHROMEDRIVER_PATH = os.environ['CHROMEDRIVER_PATH']
 CHROME_BIN = os.environ.get('GOOGLE_CHROME_SHIM', None)
 
 # Set up Selenium WebDriver using Chrome executable and point to URL
-CHROMEDRIVER_PATH = './chromedriver'
 chrome_options = Options()
 chrome_options.binary_location = CHROME_BIN
 driver = webdriver.Chrome(
-    executable_path='./chromedriver', options=chrome_options)
+    executable_path=CHROMEDRIVER_PATH, options=chrome_options)
 driver.get(URL)
 print('💻\tConnecting with Selenium...')
 
