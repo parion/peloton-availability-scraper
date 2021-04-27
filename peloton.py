@@ -16,6 +16,9 @@ USER_ID = os.environ['DISCORD_USER_ID']
 CHROMEDRIVER_PATH = os.environ['CHROMEDRIVER_PATH']
 CHROME_BIN = os.environ.get('GOOGLE_CHROME_SHIM', None)
 
+# Current delivery date
+DELIVERY_DATE = datetime(year=2021, month=5, day=25)
+
 # Set up Selenium WebDriver using Chrome executable and point to URL
 chrome_options = Options()
 chrome_options.binary_location = CHROME_BIN
@@ -58,7 +61,7 @@ print(
 
 # For each date in availableDates, check if value is less than current date
 for date in availableDates:
-    if datetime.now() > date:
+    if date < DELIVERY_DATE:
         print('🎉\tEarlier date found! Sending Discord message...')
         client = discord.Client()
 
