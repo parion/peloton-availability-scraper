@@ -17,7 +17,7 @@ CHROMEDRIVER_PATH = os.environ['CHROMEDRIVER_PATH']
 CHROME_BIN = os.environ.get('GOOGLE_CHROME_SHIM', None)
 
 # Current delivery date
-DELIVERY_DATE = datetime(year=2021, month=5, day=25)
+DELIVERY_DATE = datetime(year=2021, month=6, day=8)
 
 # Set up Selenium WebDriver using Chrome executable and point to URL
 chrome_options = Options()
