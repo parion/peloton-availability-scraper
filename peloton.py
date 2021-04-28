@@ -40,17 +40,17 @@ availableDates = []
 allDates = ""
 try:
   # Get dates container element
-    datesContainer = driver.find_elements_by_xpath(
-        '//*[@data-test-id="datesContainer"]')
+    datesButtons = driver.find_elements_by_xpath(
+        '//*[@data-test-id="datesContainer"]//button')
     # For each button in dates container, get the text of the button and retrieve digits
-    for button in datesContainer:
-        dateString = button.find_element_by_tag_name(
-            'button').text.split(', ')[1]
-        # If date exists, add to available dates array
-        if dateString:
-            allDates += f'{dateString}, '
-            date = datetime.strptime(f'{dateString} 2021', '%b %d %Y')
-            availableDates.append(date)
+    for button in datesButtons:
+        if button.text:
+            dateString = button.text.split(', ')[1]
+            # If date exists, add to available dates array
+            if dateString:
+                allDates += f'{dateString}, '
+                date = datetime.strptime(f'{dateString} 2021', '%b %d %Y')
+                availableDates.append(date)
 except NoSuchElementException:
     print('🤨\tNo buttons found.')
     driver.quit()
